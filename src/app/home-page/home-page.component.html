@@ -1,0 +1,64 @@
+<ng-container *ngIf="!isLoading; else loader">
+  <section class="pb-5" *ngIf="filmsList.length > 0; else noData">
+    <div class="container text-center">
+      <!-- Masonry grid -->
+      <div class="gallery-wrapper">
+        <div class="row">
+          <!-- Grid item -->
+          <ng-container *ngFor="let item of filmsList; index as i">
+            <div class="col-md-3 col-md-4 col-sm-6 col-12 grid-item mb-2">
+              <div class="card">
+                <img
+                  class="img-rounded w-100 mb-3"
+                  src="{{ item?.imgPath }}"
+                  alt="{{ item?.title }}"
+                  height="150"
+                  width="100"
+                />
+                <div class="card-body">
+                  <h6 (click)="redirectToMovie(item.url)">
+                    <a class="link-primary font-italic">
+                      {{ item?.title }}
+                    </a>
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>
+
+<ng-template #loader>
+  <div class="text-center mb-5">
+    <div
+      class="spinner-grow mr-2"
+      style="width: 3rem; height: 3rem"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div
+      class="spinner-grow mr-2"
+      style="width: 3rem; height: 3rem"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div
+      class="spinner-grow mr-2"
+      style="width: 3rem; height: 3rem"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #noData>
+  <div class="alert alert-danger text-center m-5" role="alert">
+    No data found. Something went wrong. Try again in a few minutes.
+  </div>
+</ng-template>

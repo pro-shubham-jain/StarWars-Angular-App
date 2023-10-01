@@ -1,0 +1,113 @@
+<ng-container *ngIf="!isLoading; else loader">
+  <section class="pb-5">
+    <div class="container text-center">
+      <!-- Masonry grid -->
+      <div class="gallery-wrapper">
+        <!-- Grid sizer -->
+        <div class="grid-sizer col-lg-4 col-md-6"></div>
+        <div class="row row-cols-1">
+          <!-- Grid item -->
+          <ng-container
+            *ngIf="
+              !!starWarFilmDetails && starWarFilmDetails.characters.length > 0;
+              else noData
+            "
+          >
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title">{{ starWarFilmDetails.title }}</h5>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text">
+                      {{ starWarFilmDetails.opening_crawl }}
+                    </p>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Release Date</li>
+                        <li class="list-group-item">Director</li>
+                        <li class="list-group-item">Producer</li>
+                      </ul>
+                    </div>
+                    <div class="col-sm-6">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                          {{
+                            starWarFilmDetails.release_date
+                              | date : "dd-MM-yyyy"
+                          }}
+                        </li>
+                        <li class="list-group-item">
+                          {{ starWarFilmDetails.director }}
+                        </li>
+                        <li class="list-group-item">
+                          {{ starWarFilmDetails.producer }}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="card-header">
+                    <h5 class="card-title">Characters</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <ng-container
+                        *ngFor="
+                          let item of starWarFilmDetails?.characters;
+                          index as i
+                        "
+                      >
+                        <div class="col-sm-6">
+                          <p
+                            class="font-italic link-primary"
+                            (click)="redirectTocharacters(item)"
+                          >
+                            {{ item?.name }}
+                          </p>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>
+<ng-template #loader>
+  <div class="text-center mb-5">
+    <div
+      class="spinner-grow mr-2"
+      style="width: 3rem; height: 3rem"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div
+      class="spinner-grow mr-2"
+      style="width: 3rem; height: 3rem"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div
+      class="spinner-grow mr-2"
+      style="width: 3rem; height: 3rem"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #noData>
+  <div class="alert alert-danger text-center m-5" role="alert">
+    No data found. Something went wrong. Try again in a few minutes.
+  </div>
+</ng-template>

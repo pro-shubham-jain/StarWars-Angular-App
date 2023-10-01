@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import "~font-awesome/css/font-awesome.css";   
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', 'Lato', sans-serif;
+  min-height: 100vh; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato', sans-serif;
+  cursor: pointer !important;
+}
+
+p {
+  cursor: pointer !important;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
