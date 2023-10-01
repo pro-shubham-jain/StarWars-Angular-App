@@ -57,3 +57,42 @@
     <code>ng build</code>
 </pre>
 <p>The build artifacts will be stored in the <code>dist/</code> directory.</p>
+
+<h2>Application Guide</h2>
+
+<h3>Scenario 1 & 2: Show home page – Cover</h3>
+<ul>
+  <li>When the user opens the application.</li>
+  <li>Then the user should see a list of "Star Wars" movies.</li>
+  <li>When the user clicks on a movie name.</li>
+  <li>Then the user should be redirected to the movie details page.</li>
+</ul>
+
+<h3>Scenario 3: Show movie details page </h3>
+<ul>
+  <li>When the user opens the movie details page.</li>
+  <li>Then the movie title, producer, director, and release date should be displayed.</li>
+  <li>And the opening crawl of the movie should be shown.</li>
+  <li>And a list of characters should be displayed.</li>
+</ul>
+
+<h3>Scenario 4: Navigate to character details page from movie details page</h3>
+<ul>
+  <li>Given the user has opened the movie details page.</li>
+  <li>When the user clicks on a character name.</li>
+  <li>Then the user should be redirected to the character details page.</li>
+</ul>
+
+<h3>Scenario 5: Show character details page</h3>
+<ul>
+  <li>When the user opens the character details page.</li>
+  <li>Then the character's personal data should be displayed.</li>
+  <li>And a list of movies in which the character appeared should be shown.</li>
+</ul>
+
+<h3>Scenario 6: Navigate to movie details from character details page</h3>
+<ul>
+  <li>Given the user has opened the character details page.</li>
+  <li>When the user clicks on a movie name.</li>
+  <li>Then the user should be redirected to the movie details page.</li>
+</ul>
