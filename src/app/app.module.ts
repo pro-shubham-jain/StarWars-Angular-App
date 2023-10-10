@@ -10,6 +10,7 @@ import { CharacterDetailsComponent } from './character-details/character-details
 import { HttpService } from 'src/services/http.service';
 import { NgxsModule } from '@ngxs/store';
 import { AppState } from './appState/app.state';
+import { EnvServiceProvider } from 'src/environments/env.service.provider';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { AppState } from './appState/app.state';
     NgxsModule.forRoot([AppState]),
     NgbToastModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, EnvServiceProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
