@@ -17,7 +17,7 @@ spec:
           image: shubhamjain05/client-angular
           env:
             - name: API_URL
-              value: "test1234"
+              value: "https://api.myapp.com"
 ---
 apiVersion: v1
 kind: Service
@@ -29,5 +29,5 @@ spec:
   ports:
     - name: client
       protocol: TCP
-      port: 4200
-      targetPort: 4200
+      port: 80
+      targetPort: 80
